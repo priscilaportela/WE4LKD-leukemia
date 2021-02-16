@@ -1,4 +1,6 @@
 # word embeddings capture latent knowledge discovery
+Inspired by [this application](github.com/materialsintelligence/mat2vec)
+
 
 # Setup
 ```
