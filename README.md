@@ -1,4 +1,4 @@
-# word embeddings capture latent knowledge discovery
+# Word embeddings for latent knowledge discovery
 
 # Setup
 ```
