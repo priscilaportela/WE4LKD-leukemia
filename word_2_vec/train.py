@@ -12,9 +12,10 @@ for p in paths:
     print(p)
     with open(p, 'r') as f:
         try:
-            abstract = [line.strip() for line in f][0].split('.')
-            for a in abstract:
-                sentences.append(a)
+            abstract = [line.strip() for line in f][0]
+            print(abstract)
+            break
+            sentences.append(abstract)
         except:
             pass
 
