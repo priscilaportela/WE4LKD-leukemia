@@ -4,8 +4,6 @@ import os
 from pathlib import Path
 from datetime import datetime
 
-today_date = datetime.today().strftime('%Y-%m-%d')
-
 search_strings = [
     "Myeloid Leukemia Prognosis",
     "Myeloid neoplasm Prognosis",
@@ -65,7 +63,7 @@ search_strings = [
 
 
 def search(query):
-    Entrez.email = 'priscila.portela.c@gmail.com'
+    Entrez.email = 'your@email.com' #change here
     handle = Entrez.esearch(db='pubmed', 
                             sort='relevance', 
                             retmax='999999',
@@ -86,22 +84,23 @@ def fetch_details(id_list):
 contents = []
 ids = []
 
-
 if __name__ == '__main__':
     for s in search_strings:
         print('searching for {}'.format(s))
-        Path('./results/{}'.format(s)).mkdir(parents=True, exist_ok=True)    
     
         results = search('"' + s + '"')
         id_list = results['IdList']
         ids.append(id_list)
         papers = fetch_details(id_list)
+        s = s.lower().replace(' ', '_')
+        Path('./results/{}'.format(s)).mkdir(parents=True, exist_ok=True)
         print('{} papers for {} fetched'.format(len(id_list), s))
         for i, paper in enumerate(papers['PubmedArticle']):
             try:
                 article_title = paper['MedlineCitation']['Article']['ArticleTitle']
                 if article_title[-1] == '.':
                     article_title = article_title[:-1]
+                    article_title = article_title.lower().replace(' ', '_')
                 article_abstract = paper['MedlineCitation']['Article']['Abstract']['AbstractText'][0]     
                 Path('./results/{}/{}.txt'.format(s, article_title)).touch()
                 with open('./results/{}/{}.txt'.format(s, article_title), "a") as myfile:
