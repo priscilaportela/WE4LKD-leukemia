@@ -17,14 +17,16 @@ mkdir results
 python3 crawler.py
 ```
 
-# Merge files
+# Merge abstract files
 This will generate `results_file.txt` 
 ```
 cd bert
 python3 merge_txt.py 
 ```
 
-# Word2Vec
+# Word embeddings
+
+## Word2Vec
 Training the model
 ```
 cd word2vec
@@ -39,4 +41,20 @@ Access vector for one word
 ```
 model['cytarabin']
 ```
+
+## GloVe
+```
+git clone http://github.com/stanfordnlp/glove
+cd glove && make
+```
+Making changes to `demo.sh`:
+- Remove the script from if to fi after 'make'
+- Replace the CORPUS name with `"../results_file.txt"`
+- On `if [ "$CORPUS" = 'text8' ]; then` replace `text8` with `"../results_file.txt"`
+
+Training the model
+```./demo.sh```
+
+Word vectors will be placed on `vectors.txt` 
+
 
