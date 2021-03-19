@@ -24,7 +24,7 @@ cd bert
 python3 merge_txt.py 
 ```
 
-#Word2Vec
+# Word2Vec
 Training the model
 ```
 cd word2vec
