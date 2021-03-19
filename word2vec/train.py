@@ -13,18 +13,5 @@ for s in summaries:
 # train model
 model = Word2Vec(word_list, min_count=2)
 
-# summarize the loaded model
-#print(model)
-
-# summarize vocabulary
-#words = list(model.wv.vocab)
-#print(words)
-
-# access vector for one word
-#print(model['leukemia'])
-
 # save model
 model.save('model.bin')
-
-# load model
-#new_model = Word2Vec.load('model.bin')
