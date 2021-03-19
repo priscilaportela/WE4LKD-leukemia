@@ -57,4 +57,18 @@ Training the model
 
 Word vectors will be placed on `vectors.txt` 
 
+## BERT
+Train tokenizer
+```
+cd bert
+python3 train_tokenizer.py
+```
+
+Train from scratch
+```
+python3 from_scratch.py
+```
+
+
+
 
