@@ -17,3 +17,8 @@ mkdir results
 python3 crawler.py
 ```
 
+# Merge files
+```
+cd bert
+python3 merge_txt.py 
+```
