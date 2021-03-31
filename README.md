@@ -11,17 +11,17 @@ source venv/bin/activate
 pip3 install --ignore-installed -r requirements.txt
 ```
 
-# Run crawler
+# Run crawler or download [results](https://drive.google.com/drive/folders/1Ryx6QjV0FIAD19mPBF4lTkMWfKo_CH4G?usp=sharing)
 ```
 mkdir results
 python3 crawler.py
 ```
 
 # Merge abstract files
-This will generate `results_file.txt` 
+This will generate `results_file.txt` from abstracts on results folder
 ```
 cd bert
-python3 merge_txt.py 
+python3 merge_txt.py
 ```
 
 # Word embeddings
