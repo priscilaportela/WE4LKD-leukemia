@@ -11,6 +11,8 @@ source venv/bin/activate
 pip3 install --ignore-installed -r requirements.txt
 ```
 
+# Change search strings on `search_strings.txt` (optional)
+
 # Run crawler or download [results](https://drive.google.com/drive/folders/1Ryx6QjV0FIAD19mPBF4lTkMWfKo_CH4G?usp=sharing)
 ```
 mkdir results
