@@ -1,7 +1,7 @@
 # Word embeddings capture latent knowledge discovery
 Inspired by [this application](https://github.com/materialsintelligence/mat2vec)
 
-# Setup
+## Setup
 ```
 #create venv
 python3 -m venv venv
@@ -11,24 +11,24 @@ source venv/bin/activate
 pip3 install --ignore-installed -r requirements.txt
 ```
 
-# Change search strings on `search_strings.txt` (optional)
+## Change search strings on `search_strings.txt` (optional)
 
-# Run crawler or download [results](https://drive.google.com/drive/folders/1Ryx6QjV0FIAD19mPBF4lTkMWfKo_CH4G?usp=sharing)
+## Run crawler or download [results](https://drive.google.com/drive/folders/1Ryx6QjV0FIAD19mPBF4lTkMWfKo_CH4G?usp=sharing)
 ```
 mkdir results
 python3 crawler.py
 ```
 
-# Merge abstract files
+## Merge abstract files
 This will generate `results_file.txt` from abstracts on results folder
 ```
 cd bert
 python3 merge_txt.py
 ```
 
-# Word embeddings
+## Word embeddings
 
-## Word2Vec
+### Word2Vec
 Training the model
 ```
 cd word2vec
@@ -44,7 +44,7 @@ Access vector for one word
 model['cytarabin']
 ```
 
-## GloVe
+### GloVe
 ```
 git clone http://github.com/stanfordnlp/glove
 cd glove && make
@@ -59,16 +59,7 @@ Training the model
 
 Word vectors will be placed on `vectors.txt` 
 
-## BERT
-Train tokenizer
-```
-cd bert
-python3 train_tokenizer.py
-```
-
-Train from scratch
-```
-python3 from_scratch.py
+### FastText (WIP)
 ```
 
 
