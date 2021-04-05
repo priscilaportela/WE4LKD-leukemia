@@ -22,7 +22,6 @@ python3 crawler.py
 ## Merge abstract files
 This will generate `results_file.txt` from abstracts on results folder
 ```
-cd bert
 python3 merge_txt.py
 ```
 
