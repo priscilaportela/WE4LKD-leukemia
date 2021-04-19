@@ -19,7 +19,7 @@ for i in personal_stop_words:
     stop_words.add(i)
 
 # define training data
-summaries = [s.strip() for s in open("results_file.txt")]
+summaries = [s.strip() for s in open("results_file.txt", encoding="utf-8")]
 
 word_list = []
 for s in summaries:
@@ -32,5 +32,5 @@ for s in summaries:
 
 res = list(map(' '.join, word_list))
 
-with open("results_file_clean.txt", "w") as outfile:
+with open("results_file_clean.txt", "w", encoding="utf-8") as outfile:
     outfile.write("\n".join(res))
