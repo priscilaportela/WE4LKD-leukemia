@@ -25,6 +25,11 @@ This will generate `results_file.txt` from abstracts on results folder
 python3 merge_txt.py
 ```
 
+## Clean abstract files
+This will generate `results_file_clean.txt`
+```
+python3 clean_text.py
+```
 ## Word embeddings
 
 ### Word2Vec
