@@ -63,15 +63,15 @@ Training the model
 
 Word vectors will be placed on `vectors.txt` 
 
-### BERT (WIP)
-```
 
 
-## Create inputs for [Projector](https://projector.tensorflow.org/) inside `tensorboard_inputs` folder 
+## Create inputs for [Projector](https://projector.tensorflow.org/) inside tensorboard_inputs folder 
 ```
 python3 to_tensorboard_format.py glove 
 ```
+
 or
+
 ```
 python3 to_tensorboard_format.py word2vec
 ```
