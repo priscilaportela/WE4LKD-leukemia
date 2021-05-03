@@ -55,15 +55,13 @@ cd glove && make
 ```
 Making changes to `demo.sh`:
 - Remove the script from if to fi after 'make'
-- Replace the CORPUS name with `"../results_file.txt"`
-- On `if [ "$CORPUS" = 'text8' ]; then` replace `text8` with `"../results_file.txt"`
+- Replace the CORPUS name with `"../results_file_clean.txt"`
+- On `if [ "$CORPUS" = 'text8' ]; then` replace `text8` with `"../results_file_clean.txt"`
 
 Training the model
 ```./demo.sh```
 
 Word vectors will be placed on `vectors.txt` 
-
-
 
 ## Create inputs for [Projector](https://projector.tensorflow.org/) inside tensorboard_inputs folder 
 ```
