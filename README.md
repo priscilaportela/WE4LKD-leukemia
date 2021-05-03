@@ -45,7 +45,7 @@ model = Word2Vec.load('model.bin')
 ```
 Access vector for one word
 ```
-model['cytarabin']
+model.wv['cytarabin']
 ```
 
 ### GloVe
@@ -63,9 +63,17 @@ Training the model
 
 Word vectors will be placed on `vectors.txt` 
 
-### FastText (WIP)
+### BERT (WIP)
 ```
 
 
+## Create inputs for [Projector](https://projector.tensorflow.org/) inside `tensorboard_inputs` folder 
+```
+python3 to_tensorboard_format.py glove 
+```
+or
+```
+python3 to_tensorboard_format.py word2vec
+```
 
 
