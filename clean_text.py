@@ -6,7 +6,7 @@ from nltk.corpus import stopwords
 
 stop_words = set(stopwords.words('english'))
 personal_stop_words = ('rarα', 'aacr', 'aacs', 'aafc', 'aafp', 'aafps', 'aagm', 'aaipi', 'aalp',
-                       'aamdsif', 'aame', 'aaml', 'aams', 'aamt', 'aapc', 'aaptamine',
+                       'aamdsif', 'aame', 'aaml', 'aams', 'aamt', 'aapc', 
                        'aatc', 'aato', 'abcc', 'abcg', 'abcm', 'abfm', 'ablb', 'ablc', 'abmt',
                        'abmts', 'abvd', 'accs', 'acsdkp', 'acsl', 'acsls', 'acta', 'actb', 'actd',
                        'acted', 'actg', 'acth', 'actiii', 'acpd', 'adbw', 'adcc', 'adcp', 'adcr',
@@ -21,6 +21,10 @@ fix_typos_dict = {'remarkablely': 'remarkably',
                   'efficiacy': 'efficiency',
 }
 
+##todo
+#join words: Meridianin D = Meridianin-D#
+#ara c : ara-c
+
 for i in personal_stop_words:
     stop_words.add(i)
 
@@ -32,7 +36,7 @@ for s in summaries:
     s = s.split(' ')
     s = [word for word in s if word.isalpha()]
     s = [w.lower().translate({ord(x): '' for x in string.punctuation}) for w in s]
-    s = [w for w in s if len(w) >= 4]
+    #s = [w for w in s if len(w) >= 4]
     s = [w for w in s if not w in stop_words]
     s = [w if w not in fix_typos_dict else fix_typos_dict[w] for w in s]
     word_list.append(s)
