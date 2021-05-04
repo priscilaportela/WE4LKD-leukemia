@@ -15,6 +15,10 @@ personal_stop_words = ('rarα', 'aacr', 'aacs', 'aafc', 'aafp', 'aafps', 'aagm',
                        'µmlchip', 'özen', 'černjavski', 'αenac', 'αgalcer', 'αiib', 'αsma', 'αβtcr',
                        'βcatenin', 'βphosphorylated', 'βtcr', 'δcak', 'δfret', 'δtcpc', 'μgrna', 'μmol', 'τhis')
 
+fix_typos_dict = {'remarkablely': 'remarkably',
+                  'leukaemia': 'leukemia',
+}
+
 for i in personal_stop_words:
     stop_words.add(i)
 
@@ -28,6 +32,7 @@ for s in summaries:
     s = [w.lower().translate({ord(x): '' for x in string.punctuation}) for w in s]
     s = [w for w in s if len(w) >= 4]
     s = [w for w in s if not w in stop_words]
+    s = [w if w not in fix_typos_dict else fix_typos_dict[w] for w in s]
     word_list.append(s)
 
 res = list(map(' '.join, word_list))
