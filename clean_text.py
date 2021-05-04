@@ -17,6 +17,8 @@ personal_stop_words = ('rarα', 'aacr', 'aacs', 'aafc', 'aafp', 'aafps', 'aagm',
 
 fix_typos_dict = {'remarkablely': 'remarkably',
                   'leukaemia': 'leukemia',
+                  'leukaemias': 'leukemias',
+                  'efficiacy': 'efficiency',
 }
 
 for i in personal_stop_words:
