@@ -17,10 +17,10 @@ import os
 paths = ["../results_file_clean.txt"]
 
 # Initialize a tokenizer
-tokenizer = ByteLevelBPETokenizer()
+tokenizer = DistilBertTokenizerFast()
 
 # Customize training
-tokenizer.train(files=paths, vocab_size=52000, min_frequency=2, special_tokens=[
+tokenizer.train(files=paths, vocab_size=200, min_frequency=2, special_tokens=[
     "<s>",
     "<pad>",
     "</s>",
@@ -45,7 +45,7 @@ tokenizer._tokenizer.post_processor = BertProcessing(
     ("<s>", tokenizer.token_to_id("<s>")),
 )
 
-tokenizer.enable_truncation(max_length=200)
+tokenizer.enable_truncation(max_length=512)
 
 
 import torch
