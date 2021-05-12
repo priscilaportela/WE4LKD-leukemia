@@ -17,7 +17,7 @@ import os
 paths = ["../results_file_clean.txt"]
 
 # Initialize a tokenizer
-tokenizer = DistilBertTokenizerFast()
+tokenizer = ByteLevelBPETokenizer()
 
 # Customize training
 tokenizer.train(files=paths, vocab_size=200, min_frequency=2, special_tokens=[
@@ -61,7 +61,7 @@ config = DistilBertConfig(
 
 from transformers import DistilBertTokenizerFast
 
-tokenizer = DistilBertTokenizerFast.from_pretrained("./distilbert_we4lkd", max_len=512)
+tokenizer = ByteLevelBPETokenizer.from_pretrained("./distilbert_we4lkd", max_len=512)
 
 from transformers import DistilBertForMaskedLM
 
