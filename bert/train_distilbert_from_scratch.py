@@ -35,7 +35,7 @@ from tokenizers.implementations import ByteLevelBPETokenizer
 from tokenizers.processors import BertProcessing
 
 
-tokenizer = DistilBertForMaskedLM(
+tokenizer = ByteLevelBPETokenizer(
     "./distilbert_we4lkd/vocab.json",
     "./distilbert_we4lkd/merges.txt",
 )
@@ -61,7 +61,7 @@ config = DistilBertConfig(
 
 from transformers import DistilBertTokenizerFast
 
-tokenizer = ByteLevelBPETokenizer.from_pretrained("./distilbert_we4lkd", max_len=512)
+tokenizer = DistilBertTokenizerFast.from_pretrained("./distilbert_we4lkd", max_len=512)
 
 from transformers import DistilBertForMaskedLM
 
