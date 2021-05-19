@@ -12,7 +12,7 @@ embedding = sys.argv[1]
 
 #n first common words
 try:
-    n = sys.argv[2]
+    n = int(sys.argv[2])
 except Exception:
     n = 10000
 
