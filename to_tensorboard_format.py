@@ -10,8 +10,14 @@ os.makedirs('tensorboard_inputs', exist_ok=True)
 #parser
 embedding = sys.argv[1]
 
+#n first common words
+try:
+    n = sys.argv[2]
+except Exception:
+    n = 10000
+
 #get most common words to remove from projector file
-list_common_words = get_most_common(n=10000)
+list_common_words = get_most_common(n)
 
 if embedding == 'word2vec':
     model = Word2Vec.load('./word2vec/model.bin')

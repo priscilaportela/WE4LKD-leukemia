@@ -64,14 +64,15 @@ Training the model
 Word vectors will be placed on `vectors.txt` 
 
 ## Create inputs for [Projector](https://projector.tensorflow.org/) inside tensorboard_inputs folder 
+After training the model, chosse witch will be transformed in tensorboard format. Pass as a second argument the number of common words that will not be plotted. The number of words must be between 1 and 333.333, the default value is 10.000
 ```
-python3 to_tensorboard_format.py glove 
+python3 to_tensorboard_format.py glove <your number>
 ```
 
 or
 
 ```
-python3 to_tensorboard_format.py word2vec
+python3 to_tensorboard_format.py word2vec <your number>
 ```
 
 
