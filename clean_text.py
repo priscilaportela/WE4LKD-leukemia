@@ -3,15 +3,15 @@ import string
 import re
 
 def contains(str, seq):
-  '''Verify if a string (str) contains any of the characaters in a list.
+    '''Verify if a string (str) contains any of the characaters in a list.
   
-  Args:
-    str: string
-    seq: list of characters
+    Args:
+      str: string
+      seq: list of characters
   
-  Returns:
-    0 if the string does not contain any of the characters, 1 otherwise.
-  '''
+    Returns:
+      0 if the string does not contain any of the characters, 1 otherwise.
+    '''
     for c in seq:
         if c in str: 
           return 1
