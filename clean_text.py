@@ -28,6 +28,19 @@ def write_file(text):
     outfile.write("\n".join(text))
 
 
+def list_from_txt(file_path):
+  '''Creates a list of itens based on a .txt file, each line becomes an item.
+
+  Args: 
+    file_path: the path where the .txt file was created. 
+  '''
+  stop_list = []
+  with open (file_path, 'rt') as file:
+    for line in file:
+      stop_list.append(line.rstrip('\n'))
+  return stop_list
+
+
 def clean_file(file_path):
   '''Pre-process text file with all the articles abstracts. This function removes from text stop words, units, 
   symbols, punctuation and unwanted regular expressions and isolated numbers from the text. It uses the two other 
@@ -40,9 +53,7 @@ def clean_file(file_path):
   from nltk.corpus import stopwords 
 
   stop_words = set(stopwords.words('english'))
-  personal_stop_words = ('aafp', 'aagm', 'aaipi', 'aamdsif', 'aapc', 
-                         'abfm', 'abmts', 'acted', 'µmlchip', 'özen', 
-                         'černjavski', 'δcak', 'δfret', 'δtcpc')
+  personal_stop_words = list_from_txt('personal_stop_words.txt')
 
   fix_typos_dict = {'remarkablely': 'remarkably',
                     'leukaemia': 'leukemia',
