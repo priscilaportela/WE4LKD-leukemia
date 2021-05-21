@@ -5,16 +5,16 @@ from pathlib import Path
 from datetime import datetime
 
 def list_from_txt(file_path):
-  '''Creates a list of itens based on a .txt file, each line becomes an item.
+    '''Creates a list of itens based on a .txt file, each line becomes an item.
 
-  Args: 
-    file_path: the path where the .txt file was created. 
-  '''
-  strings_list = []
-  with open (file_path, 'rt') as file:
-    for line in file:
-      strings_list.append(line.rstrip('\n'))
-  return strings_list
+    Args: 
+      file_path: the path where the .txt file was created. 
+    '''
+    strings_list = []
+    with open (file_path, 'rt') as file:
+      for line in file:
+        strings_list.append(line.rstrip('\n'))
+    return strings_list
 
 def search(query):
     Entrez.email = 'your@email.com' #change here
