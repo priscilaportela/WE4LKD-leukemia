@@ -1,6 +1,7 @@
 import nltk
 import string
 import re
+from crawler import list_from_txt
 
 def contains(str, seq):
     '''Verify if a string (str) contains any of the characaters in a list.
@@ -40,9 +41,7 @@ def clean_file(file_path):
   from nltk.corpus import stopwords 
 
   stop_words = set(stopwords.words('english'))
-  personal_stop_words = ('aafp', 'aagm', 'aaipi', 'aamdsif', 'aapc', 
-                         'abfm', 'abmts', 'acted', 'µmlchip', 'özen', 
-                         'černjavski', 'δcak', 'δfret', 'δtcpc')
+  personal_stop_words = list_from_txt('personal_stop_words.txt')
 
   fix_typos_dict = {'remarkablely': 'remarkably',
                     'leukaemia': 'leukemia',
