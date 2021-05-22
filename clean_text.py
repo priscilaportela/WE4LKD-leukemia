@@ -1,6 +1,7 @@
 import nltk
 import string
 import re
+from crawler import list_from_txt
 
 def contains(str, seq):
     '''Verify if a string (str) contains any of the characaters in a list.
@@ -26,19 +27,6 @@ def write_file(text):
   '''
   with open("results_file_clean.txt", "w", encoding="utf-8") as outfile:
     outfile.write("\n".join(text))
-
-
-def list_from_txt(file_path):
-  '''Creates a list of itens based on a .txt file, each line becomes an item.
-
-  Args: 
-    file_path: the path where the .txt file was created. 
-  '''
-  stop_list = []
-  with open (file_path, 'rt') as file:
-    for line in file:
-      stop_list.append(line.rstrip('\n'))
-  return stop_list
 
 
 def clean_file(file_path):
