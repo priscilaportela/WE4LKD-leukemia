@@ -11,7 +11,7 @@ def list_from_txt(file_path):
       file_path: the path where the .txt file was created. 
     '''
     strings_list = []
-    with open (file_path, 'rt') as file:
+    with open (file_path, 'rt', encoding='utf-8') as file:
       for line in file:
         strings_list.append(line.rstrip('\n'))
     return strings_list
