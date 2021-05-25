@@ -17,21 +17,18 @@ from transformers import DistilBertConfig
 
 config = DistilBertConfig()
 
-from transformers import DistilBertTokenizerFast
-
 tokenizer = DistilBertTokenizerFast.from_pretrained("distilbert-base-uncased")
 
-from transformers import DistilBertForMaskedLM
+from transformers import AutoModelForMaskedLM, DistilBertForMaskedLM
 
-model = DistilBertForMaskedLM(config=config)
-
-model.num_parameters()
+model = AutoModelForMaskedLM.from_pretrained('distilbert-base-uncased')
+model.train()
 
 from transformers import LineByLineTextDataset
 
 dataset = LineByLineTextDataset(
     tokenizer=tokenizer,
-    file_path="../results_file.txt",
+    file_path="../results_file_clean.txt",
     block_size=128,
 )
 

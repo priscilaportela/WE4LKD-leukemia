@@ -5,7 +5,7 @@ from transformers import LineByLineTextDataset
 from transformers import Trainer, TrainingArguments
 from transformers import DataCollatorForLanguageModeling
 from transformers import AutoTokenizer
-from transformers import AutoModelForPreTraining 
+from transformers import AutoModelForMaskedLM, AutoModelForPreTraining 
 from pathlib import Path
 import os
 
@@ -13,9 +13,11 @@ import torch
 print(torch.cuda.is_available())
 
 tokenizer = AutoTokenizer.from_pretrained("microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext")
-model = AutoModelForPreTraining.from_pretrained('microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext')
+model = AutoModelForMaskedLM.from_pretrained('microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract-fulltext')
 
-from transformers import LineByLineTextDataset
+model.train()
+
+from transformers import AutoModelForMaskedLM, LineByLineTextDataset
 
 dataset = LineByLineTextDataset(
     tokenizer=tokenizer,
@@ -38,7 +40,7 @@ training_args = TrainingArguments(
     per_gpu_train_batch_size=32,
     save_steps=10_000,
     save_total_limit=2,
-    prediction_loss_only=True,
+#    prediction_loss_only=True,
 )
 
 trainer = Trainer(
