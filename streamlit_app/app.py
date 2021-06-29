@@ -5,10 +5,6 @@ from scipy import spatial
 
 st.markdown('# Relatorio - WE4LKD')
 
-word_option = st.selectbox(
-     'Escolha uma palavra:',
-     ('haematopoietic', 'azacitidine', 'venetoclax', 'cytarabine', 'daunorubicin', 'decitabine'))
-
 number_option = st.selectbox(
      'Escolha um numero de vizinhos:',
      (5, 10, 20, 50))
@@ -19,28 +15,31 @@ df_metadata = pd.read_csv('s3://we4lkd/metadata_w2v.tsv',
 df_vectors = pd.read_csv('s3://we4lkd/vectors_w2v.tsv', sep='\t', header=None, nrows=300)
 
 st.markdown('## {} Paravras mais proximas'.format(number_option))
-st.write('Palavra escolhida: {}'.format(word_option))
-word_target_index = list(df_metadata[0]).index(word_option)
-vector_target = df_vectors.values.tolist()[word_target_index]
 
-vectors = df_vectors.values.tolist()
-words = list(df_metadata[0])
-del vectors[word_target_index]
-del words[word_target_index]
+for w in ['haematopoietic', 'azacitidine', 'venetoclax', 'cytarabine', 'daunorubicin', 'decitabine']:
 
-#search_closest words
-tree = spatial.KDTree(vectors)
+    st.write('Palavra escolhida: {}'.format(word_option))
+    word_target_index = list(df_metadata[0]).index(word_option)
+    vector_target = df_vectors.values.tolist()[word_target_index]
 
-closest_words = []
+    vectors = df_vectors.values.tolist()
+    words = list(df_metadata[0])
+    del vectors[word_target_index]
+    del words[word_target_index]
 
-from itertools import repeat
-for i in repeat(None, int(number_option)):
-    closest_word_index = tree.query(vector_target)[1]
-    closest_words.append(words[closest_word_index])
-    del vectors[closest_word_index]
-    del words[closest_word_index]
+    #search_closest words
+    tree = spatial.KDTree(vectors)
 
-st.write(closest_words)
+    closest_words = []
+
+    from itertools import repeat
+    for i in repeat(None, int(number_option)):
+        closest_word_index = tree.query(vector_target)[1]
+        closest_words.append(words[closest_word_index])
+        del vectors[closest_word_index]
+        del words[closest_word_index]
+
+    st.write(closest_words)
 
 st.markdown('## Busca livre - com filtro')
 word_search = st.text_input("Palavra a ser buscada")
@@ -49,5 +48,4 @@ n_similar = st.text_input("Numero de palavras semelhantes")
 word_option = st.selectbox(
      'Escolha um filtro:',
      ('', 'gene', 'disease', 'drug', 'species', 'miRNA', 'mutation'))
-
 
