@@ -2,9 +2,20 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 
-st.title('My first app')
-st.write("Here's our first attempt at using data to create a table:")
-st.write(pd.DataFrame({
-    'first column': [1, 2, 3, 4],
-    'second column': [10, 20, 30, 40]
-}))
+st.markdown('# Relatorio - Pubmedbert')
+
+word_option = st.selectbox(
+     'Escolha uma palavra:',
+     ('azacitidine', 'venetoclax', 'cytarabine', 'daunorubicin', 'decitabine'))
+
+number_option = st.selectbox(
+     'Escolha um numero de vizinhos:',
+     (5, 10, 20, 50))
+
+df_metadata = pd.read_csv('../tensorboard_inputs/metadata_w2v.tsv', sep='\t', header=None)
+df_vectores = pd.read_csv('../tensorboard_inputs/vectors_w2v.tsv', sep='\t', header=None)
+
+print(df_metadata.head())
+
+st.markdown('## Paravras mais proximas')
+chosen_word_vector = df.c1[a.c1 == 8].index.tolist()
