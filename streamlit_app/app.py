@@ -16,7 +16,7 @@ df_vectors = pd.read_csv('s3://we4lkd/vectors_w2v.tsv', sep='\t', header=None)
 
 st.markdown('## {} Paravras mais proximas'.format(number_option))
 
-for w in ['haematopoietic', 'azacitidine', 'venetoclax', 'cytarabine', 'daunorubicin', 'decitabine']:
+for w in ['azacitidine', 'venetoclax', 'cytarabine', 'daunorubicin', 'decitabine']:
 
     st.write('Palavra escolhida: {}'.format(w))
     word_target_index = list(df_metadata[0]).index(w)
