@@ -21,7 +21,7 @@ from transformers import AutoModelForMaskedLM, LineByLineTextDataset
 
 dataset = LineByLineTextDataset(
     tokenizer=tokenizer,
-    file_path="../results_file.txt",
+    file_path="../results_file_clean.txt",
     block_size=128,
 )
 
