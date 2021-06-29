@@ -12,7 +12,9 @@ number_option = st.selectbox(
      'Escolha um numero de vizinhos:',
      (5, 10, 20, 50))
 
-df_metadata = pd.read_csv('metadata_w2v.tsv', sep='\t', header=None)
+df_metadata = pd.read_csv('https://github.com/priscilaportela/WE4LKD-leukemia/blob/master/streamlit_app/metadata_w2v.tsv', 
+                          sep='\t', 
+                          header=None)
 df_vectores = pd.read_csv('vectors_w2v.tsv', sep='\t', header=None)
 
 print(df_metadata.head())
