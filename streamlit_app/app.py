@@ -24,7 +24,7 @@ st.write('Palavra escolhida: {}'.format(word_option))
 word_target_index = list(df_metadata[0]).index(word_option)
 vector_target = list(df_vectors[0])[word_target_index]
 
-vectors = list(df_vectors[0])
+vectors = df_vectors.values.tolist()
 words = list(df_metadata[0])
 del vectors[word_target_index]
 del words[word_target_index]
