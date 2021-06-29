@@ -18,8 +18,8 @@ st.markdown('## {} Paravras mais proximas'.format(number_option))
 
 for w in ['haematopoietic', 'azacitidine', 'venetoclax', 'cytarabine', 'daunorubicin', 'decitabine']:
 
-    st.write('Palavra escolhida: {}'.format(word_option))
-    word_target_index = list(df_metadata[0]).index(word_option)
+    st.write('Palavra escolhida: {}'.format(w))
+    word_target_index = list(df_metadata[0]).index(w)
     vector_target = df_vectors.values.tolist()[word_target_index]
 
     vectors = df_vectors.values.tolist()
