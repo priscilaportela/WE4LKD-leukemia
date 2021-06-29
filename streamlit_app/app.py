@@ -11,8 +11,8 @@ number_option = st.selectbox(
 
 df_metadata = pd.read_csv('s3://we4lkd/metadata_w2v.tsv',
                           sep='\t',
-                          header=None, nrows=300)
-df_vectors = pd.read_csv('s3://we4lkd/vectors_w2v.tsv', sep='\t', header=None, nrows=300)
+                          header=None)
+df_vectors = pd.read_csv('s3://we4lkd/vectors_w2v.tsv', sep='\t', header=None)
 
 st.markdown('## {} Paravras mais proximas'.format(number_option))
 
