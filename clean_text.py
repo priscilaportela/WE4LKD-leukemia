@@ -2,6 +2,7 @@ import nltk
 import string
 import re
 from crawler import list_from_txt
+from pathlib import Path
 
 def contains(str, seq):
     '''Verify if a string (str) contains any of the characaters in a list.
@@ -19,13 +20,13 @@ def contains(str, seq):
     return 0
 
 
-def write_file(text):
+def write_file(text, file_path):
     '''Write the result (word_list) of cleaning function into a .txt file, called "results_file_clean.txt"
 
     Args: 
       text: all pre-processed text 
     '''
-    with open("results_file_clean.txt", "w", encoding="utf-8") as outfile:
+    with open("./{}_clean.txt".format(file_path[:-4]), "w+", encoding="utf-8") as outfile:
       outfile.write("\n".join(text))
 
 
@@ -79,7 +80,11 @@ def clean_file(file_path):
         word_list.append(s)
 
     res = list(map(' '.join, word_list))
-    write_file(res)
+    write_file(res, file_path)
 
 
-clean_file('results_file.txt')
+filenames = [str(x) for x in Path('./results_aggregated/').glob('*.txt')]
+
+for f in filenames:
+    print('cleaning {}'.format(f))
+    clean_file(f)

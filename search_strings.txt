@@ -41,12 +41,9 @@ Leukemia biology
 Daunorubicin
 Myelodysplastic syndromes
 Myeloproliferative neoplasms
-Azacitidine
-Venetoclax
 Cytarabine
 All-trans retinoic acid and/or arsenic trioxide
 Repurposing drugs
-Decitabine
 Allogeneic bone marrow transplant
 Myeloproliferative syndromes
 Myeloid Leukemia Molecular markers

@@ -20,7 +20,7 @@ except Exception:
 list_common_words = get_most_common(n)
 
 if embedding == 'word2vec':
-    model = Word2Vec.load('./word2vec/model.bin')
+    model = Word2Vec.load('./word2vec/model_results_file_1900_2024_clean.bin')
 
     metadata = []
     word_vectors = []
