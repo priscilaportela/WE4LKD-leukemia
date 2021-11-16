@@ -33,7 +33,7 @@ def create_data_frame(jsonObject):
 texto_completo = Path('../tensorboard_inputs/metadata_w2v.tsv').read_text(encoding='utf-8').replace('\n', ' ')
 textos_parciais = brake_text(texto_completo)
 
-with open('./content/jsons/final.json', 'r', encoding='utf-8') as f:
+with open('./jsons/final.json', 'r', encoding='utf-8') as f:
       finalJson = json.load(f)
 
 df = create_data_frame(finalJson)

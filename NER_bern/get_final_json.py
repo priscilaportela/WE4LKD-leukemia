@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import os
 
-def merge_all_jsons(directory=r'./content/jsons/'):
+def merge_all_jsons(directory=r'./jsons/'):
     # define o schema (regras para o merge)
     schema = {
              "properties": {
@@ -18,7 +18,7 @@ def merge_all_jsons(directory=r'./content/jsons/'):
     # cria o objeto de merge:
     merger = Merger(schema)
     # armazena as informações do 1° arquivo .json, para depois adicionar mais informações a ele:
-    with open('./content/jsons/ner0.json', 'r') as f:
+    with open('./jsons/ner0.json', 'r') as f:
         result = json.load(f)
   # adiciona o atributo "parcial_text" nas anotações do 1° arquivo .json (acima)
   # esse atributo será útil para saber de qual bloco de texto a palavras será recuperada depois
@@ -35,7 +35,7 @@ def merge_all_jsons(directory=r'./content/jsons/'):
                 jsonObject['denotations'][i].update({'parcial_text': int(filename[3])})
         result = merger.merge(result, jsonObject)                                     # faz o merge das informações
   # escreve o arquivo .json final:
-    with open('./content/jsons/final.json', 'w', encoding='utf-8') as f:
+    with open('./jsons/final.json', 'w', encoding='utf-8') as f:
         json.dump(result, f, indent=4)
 
 
@@ -55,7 +55,7 @@ def create_data_frame(jsonObject):
 
 merge_all_jsons()
 
-with open('./content/jsons/final.json', 'r', encoding='utf-8') as f:
+with open('./jsons/final.json', 'r', encoding='utf-8') as f:
     finalJson = json.load(f)
 
 df = create_data_frame(finalJson)
